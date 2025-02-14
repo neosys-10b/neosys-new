@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neosys - Singularity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --gold: linear-gradient(45deg, #FFD700 0%, #D4AF37 100%);
+    }
+
+    .holographic-border {
+      position: relative;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+      border: 1px solid transparent;
+    }
+
+    .holographic-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: var(--gold);
+      z-index: -1;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      animation: borderFlow 6s linear infinite;
+    }
+
+    @keyframes borderFlow {
+      to { background-position: 400% 0; }
+    }
+
+    .quantum-card {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .quantum-card:hover {
+      transform: perspective(1000px) rotateX(3deg) rotateY(-3deg);
+      box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.25);
+    }
+
+    .gold-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .neo-text {
+      background: var(--gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body class="bg-black text-gray-100 font-['Space_Grotesk'] overflow-x-hidden">
+  <!-- Holographic Interface -->
+  <main class="relative min-h-screen flex items-center justify-center p-8">
+    <!-- Hexagonal Grid Background -->
+    <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,...');"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 text-center">
+      <h1 class="text-6xl md:text-8xl font-bold mb-6 neo-text floating">
+        <span class="text-outline">NEO</span>SYS
+      </h1>
+      
+      <!-- Holographic Terminal -->
+      <div class="holographic-border max-w-2xl mx-auto p-8 my-12">
+        <div class="text-lg md:text-xl font-mono text-gold animate-typing">
+          > Initializing hyper-automation matrix...
+        </div>
+      </div>
+
+      <!-- Interactive DNA Strand -->
+      <div class="dna-strand">
+        <!-- SVG-based animated DNA helix with golden particles -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Modules -->
+  <section class="py-40 px-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+      <div class="quantum-card holographic-border p-8">
+        <div class="hologram-effect"></div>
+        <h3 class="text-2xl font-bold mb-4 neo-text">Quantum Workflows</h3>
+        <p class="text-gray-400">Parallel-process automation engine with AI consciousness layer</p>
+      </div>
+      <!-- Add more modules -->
+    </div>
+  </section>
+
+  <!-- Neural Interface -->
+  <section class="min-h-screen relative flex items-center">
+    <div class="neural-network"></div>
+    <div class="holographic-border max-w-4xl mx-auto p-12">
+      <h2 class="text-4xl font-bold mb-8 neo-text">Conscious Automation Matrix</h2>
+      <div class="grid grid-cols-2 gap-8">
+        <!-- Interactive neural nodes -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Quantum Form -->
+  <section class="py-40 px-8 relative">
+    <div class="holographic-border max-w-xl mx-auto p-12 quantum-card">
+      <form class="space-y-8">
+        <div class="holographic-input">
+          <input type="email" class="w-full bg-transparent p-4 outline-none" placeholder="Enter quantum signature">
+        </div>
+        <button class="w-full neo-button py-4 font-bold text-black">
+          Initiate Convergence
+        </button>
+      </form>
+    </div>
+  </section>
+  
+  <script src="main.ts" type="module"></script>
+</body>
+</html>
